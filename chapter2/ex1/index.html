@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="TextController">
+	<p>{{ messages.someText }}</p>
+
+	<!-- Controller -->
+	<script type="text/javascript">
+		var messages = {};
+		messages.someText = "You have started your journey. #1"
+		function TextController($scope) {
+			$scope.messages = messages;
+		};
+	</script>
+
+</body>
+</html>

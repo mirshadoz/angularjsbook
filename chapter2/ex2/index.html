@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="TextController">
+	<p>{{ someText.message }}</p>
+	<p ng-bind="someText.message"></p>
+
+	<!-- Controller -->
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('TextController', function($scope){
+			var someText = {};
+			someText.message = "You have started your journey #2.";
+			$scope.someText = someText;
+		});
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="StudentController">
+	<ul >
+		<li ng-repeat="student in students">
+			<a href="/student/view/{{ student.id }}">{{ student.name }}</a>
+		</li>
+	</ul>
+	<button ng-click="insertTom()">Insert Tom</button>
+
+	<!-- Controller -->
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('StudentController', function($scope){
+			var students = [
+				{
+					name: 'Marry Contrary',
+					id: 1
+				},
+				{
+					name: 'Jack Sprat',
+					id: 2
+				},
+				{
+					name: 'Jill Hill',
+					id: 3
+				}								
+			];
+
+			$scope.students = students;
+
+			$scope.insertTom = function(){
+				$scope.students.splice(1, 0, {name: 'Tom Thumb', id: 4});
+				console.log($scope.students);
+			}
+
+		});
+
+
+	</script>
+
+</body>
+</html>

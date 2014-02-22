@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body>
+	<!-- View -->
+	<p>{{ text }}</p>
+	<!-- App module & Controller -->
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('AlbumController', function($scope){
+			$scope.text = "YAY";
+		});
+	</script>
+
+</body>
+</html>

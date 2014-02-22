@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body >
+	<!-- View -->
+	<table ng-controller="AlbumController">
+		<tr ng-repeat="track in album">
+			<td>{{ $index + 1 }}</td>
+			<td>{{ track.name }}</td>
+			<td>{{ track.duration }}</td>
+		</tr>		
+	</table>
+
+	<p>{{ text }}</p>
+	<!-- App module & Controller -->
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('AlbumController', function($scope){
+			var album = [
+				{
+					name: 'Southwest Seranade',
+					duration: '2:34'
+				},
+				{
+					name: 'Northern Light Waltz',
+					duration: '3:21'
+				},
+				{
+					name: 'Eastern Tango',
+					duration: '17:45'
+				}								
+			];
+			$scope.album = album;
+		});
+	</script>
+
+</body>
+</html>
