@@ -16,8 +16,8 @@
 		<div ng-repeat="item in items">
 			<span>{{ item.title }}</span>
 			<input ng-model="item.quantity"/>
-			<span>{{ item.price | currency }}</span>
-			<span>{{ item.price * item.quantity | currency }}</span>
+			<span>Price: {{ item.price | currency }}</span>
+			<span>Quantity x Price: {{ item.price * item.quantity | currency }}</span>
 		</div>
 		<div>Total: {{ totalCart() | currency }}</div>
 		<div>Discount: {{ bill.discount | currency }}</div>

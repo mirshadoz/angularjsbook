@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Sample App</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="StudentController">
+	<input ng-model="phonenumber" type="text" placeholder="Enter phone number" />
+	<ul>
+		<li ng-repeat="phone in phonenumbers">
+			<input type="text" placeholder="{{ phone.phone }}" />
+			<button ng-click="removePhone($index)">Remove</button>
+		</li>
+	</ul>
+	<button ng-click="addPhone()">Add</button>
+	<button ng-click="printPhones()">Print all Phonenumbers</button>
+
+	<!-- Controller -->
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('StudentController', function($scope){
+
+			$scope.phonenumber = "";
+
+			$scope.phonenumbers = [];
+
+			$scope.index = 0;
+
+			$scope.addPhone = function(){
+				$scope.phonenumbers.splice($scope.index, 0, {phone: $scope.phonenumber});
+				$scope.index = $scope.index + 1;
+				$scope.phonenumber = "";
+			};
+
+			$scope.removePhone = function(index){
+				$scope.phonenumbers.splice(index, 1);
+			}
+
+			$scope.printPhones = function(){
+				angular.forEach($scope.phonenumbers, function(value, key){
+					console.log(">>> Key: " + key + ">>> Val: " + value.phone);
+				})
+			};
+
+		});
+
+	</script>
+
+</body>
+</html>

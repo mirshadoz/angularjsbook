@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="HomeModule">
+<head>
+	<title>Custome Filter Example</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="TitleCaseController">
+	<h1>{{ pageHeading | titleCase }}</h1>
+
+	<script type="text/javascript">
+	var appModule = angular.module('HomeModule', []);
+
+	appModule.filter('titleCase', function () {
+		var titleCaseFilter = function (input){
+			var words = input.split(' ');
+			for(var i=0; i<words.length; i++){
+				words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+			}
+			return words.join(' ');
+		};
+			return titleCaseFilter;
+	});
+
+	appModule.controller('TitleCaseController', function($scope){
+		$scope.pageHeading = "behold the majesty of your page title"
+	});
+
+	</script>
+
+</body>
+</html>
