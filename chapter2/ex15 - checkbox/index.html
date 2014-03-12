@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Checkbox Experiment</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+<body ng-controller="CheckBoxController">
+
+	<table>
+		<thead>
+			<tr>
+				<td>Rent?</td>
+				<td>Unit #</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<input type="checkbox" ng-model="value1"> <br/>
+					<input type="checkbox" ng-model="value2" ng-true-value="Rented" ng-false-value="Reserved"> <br/>
+				</td>
+				<td>
+					{{ unit_number }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>{{ checkBoxValue }}</div>
+	<div>{{ value2 }}</div>
+
+	<script type="text/javascript">
+		var appModule = angular.module('myApp', []);
+
+		appModule.controller('CheckBoxController', function($scope){
+			$scope.value1 = true;
+			$scope.unit_number = "123"
+
+			$scope.value2 = "Rented";
+
+		});
+
+	</script>
+
+</body>
+</html>
