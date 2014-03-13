@@ -1,23 +1,24 @@
 // Create a module for our core AMail services.
+
 var aMailServices = angular.module('aMailServices', ['ngRoute']);
 
 // Set up our route so the AMail service can find it
-aMailServices.config(function  ($routeProvider) {
+aMailServices.config(['$routeProvider', function  ($routeProvider) {
 	$routeProvider.
 	when('/', {
-		controller: ListController,
+		controller: 'ListController',
 		templateUrl: 'list.html'
 	}).
 	// Notice that for the detail view, we specify a parametirized URL component
 	// by placing a colon in front of the id
 	when('/view/:id', {
-		controller: DetailController,
+		controller: 'DetailController',
 		templateUrl: 'detail.html'
 	}).
 	otherwise({
 		redirectTo: '/'
 	});
-});
+}]);
 
 // Some fake emails
 messages = [
